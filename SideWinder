@@ -1,0 +1,14 @@
+rule SideWinder_Malware {
+    meta:
+        description = "YARA rule for SideWinder malware"
+        author = "ThreatHuntress"
+
+    strings:
+        $string1 = "SideWinder" wide ascii
+        $string2 = "runshadow" ascii
+        $string3 = "hook.dll" ascii
+        $string4 = "svchost.exe" ascii
+
+    condition:
+        all of ($string*)
+}
