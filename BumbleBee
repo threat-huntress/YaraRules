@@ -1,0 +1,14 @@
+rule BumbleBee_Malware {
+    meta:
+        description = "YARA rule for BumbleBee malware"
+        author = "ThreatHuntress"
+
+    strings:
+        $string1 = "BumbleBee" wide ascii
+        $string2 = "ab123cd" ascii
+        $string3 = "C:\\Windows\\System32\\bumblebee.dll" ascii
+        $string4 = "HKCU\\Software\\BumbleBee" ascii
+
+    condition:
+        all of ($string*)
+}
